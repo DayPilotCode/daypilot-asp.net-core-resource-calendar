@@ -1,24 +1,10 @@
 ﻿/*
-Copyright © 2025 Annpoint, s.r.o.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-
--------------------------------------------------------------------------
-
-NOTE: Requires the following acknowledgement (see also NOTICE):
-This software includes DayPilot (https://www.daypilot.org).
+DayPilot Lite
+Copyright (c) 2005 - 2025 Annpoint s.r.o.
+https://www.daypilot.org/
+Licensed under Apache Software License 2.0
+Version: 2025.4.754-lite
 */
-
 type GlobalDate = Date;
 
 export module DayPilot {
@@ -52,6 +38,7 @@ export module DayPilot {
         eventHeight?: number;
         eventMinWidth?: number;
         eventMoveHandling?: "Update" | "Disabled";
+        eventPadding?: string | number;
         eventResizeHandling?: "Update" | "Disabled";
         eventResizeMargin?: number;
         eventRightClickHandling?: "Enabled" | "Disabled" | "ContextMenu";
@@ -175,6 +162,8 @@ export module DayPilot {
         disposed(): boolean;
 
         dragInProgress(): boolean;
+
+        getCoords(): { x: number, y: number, row: DayPilot.Row, time: DayPilot.Date };
 
         getDate(pixels: number, precise?: boolean, isEnd?: boolean): DayPilot.Date;
 
@@ -549,6 +538,7 @@ export module DayPilot {
         loadingLabelHtml?: string;
         loadingLabelVisible?: boolean;
         locale?: string;
+        rtl?: boolean;
         showToolTip?: boolean;
         snapToGrid?: boolean;
         startDate?: DayPilot.Date | string;
@@ -1569,6 +1559,8 @@ export module DayPilot {
         barColor?: string;
         barHidden?: boolean;
         borderColor?: string;
+        borderRadius?: string | number;
+        padding?: string | number;
         cssClass?: string;
         fontColor?: string;
         html?: string;
